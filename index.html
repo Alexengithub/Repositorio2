@@ -14,23 +14,32 @@
             <textarea name="texto" id="texto" class="texto" cols="30" rows="10" placeholder="Ingresa el texto aquí"></textarea> <!--Literalmente escribio toda la estructura con tan solo escribir texta..-->
         
             <div class="condiciones">
-                <p><img src="imgs/bi_exclamation-circle-fill.png"> letras minusculas y sin acento</p>
+                <p><img src="imagenes/escritorio 1/bi_exclamation-circle-fill.png"> letras minusculas y sin acento</p>
             </div>
             <div class="botones">
                 <!--Aqui lo hare de forma diferente para ver como reacciona cada uno-->
                 <button class="boton-encriptar" type="button" onclick="encriptar()">Encriptar</button>
-                <input type="button" class="boton-desencriptar" value="desencriptar" onclick="desencriptar()">
+                <button class="boton-desencriptar" type="button" onclick="desencriptar()">Desencriptar</button>
+                
             </div>
         </div>
         <div class="encriptado">
-            <img src="imgs/Muñeco.png" alt="Persona viendo un diamante con una lupa" id="persona"> <!--ya aparece dentro del cuadro encriptado porque tambien pertenece a este div-->
+            <img src="imagenes/escritorio 1/Muñeco.png" alt="Persona viendo un diamante con una lupa" id="persona"> <!--ya aparece dentro del cuadro encriptado porque tambien pertenece a este div-->
             <div class="mensajeencriptado" id="mensajeencriptado">
                 <h2 id="titulomensaje">Ningun mensaje encriptado</h2>
-                <p id="parafo">ingrese el texto que deseas encriptar o desencriptar</p>
+                <p id="parrafo">ingrese el texto que deseas encriptar o desencriptar</p>
                 <!--<textarea name="mensajeescrito" id="mensajeescrito" cols="30" rows="10" class="mensajeescrito"></textarea> -->
             </div>
+           <div class="copiar">
+            <button type="button" class="boton-copiar" onclick="copiar()">Copiar</button>
+           </div>
         </div>
     </div> 
 </body>
+<footer>
+    <div class="foot">
+    <p class="hechopor">Hecho por Alexis Gómez Escobar </p>
+    </div>
+</footer>
 <script src="index.js"></script>
 </html>

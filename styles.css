@@ -23,6 +23,7 @@
     font-size: 30px;
     line-height: 100%; /* Es cuanto espacio vertical va a haber desde el inicio de cuando de texto hasta donde va a empezar a escribir*/
     background-color: #f3f5fc;
+    resize: none; /*Para evitar que el usuario redimencione el area de texto*/
 }
 
 .texto::placeholder{ /*Para darle estilos a una propiedad usamos ::*/
@@ -96,8 +97,9 @@
 }
 .boton-desencriptar{
     box-sizing: border-box;
+    margin: 0 10px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     padding: 2%;
     gap:8px;
@@ -111,6 +113,8 @@
     text-align: center;
     color: #0a3871; /*color del texto*/
 }
+
+
 
 .boton-encriptar:hover,
 .boton-desencriptar:hover{ /*Aqui se usan los botones por separado porque al tratar de manipular el hover del dib "botones" se comportaba muy extraño*/
@@ -180,6 +184,47 @@
     
 }
 
+.copiar{
+    display: flex; /*Para poner un boton alado de otro lo mas facil es hacer el contenedor flexile*/
+    flex-direction: row;
+    align-items: flex-start; /*alinear al inicio del contenedor*/
+    padding: 1% 0; /*1% hacia arriba y hacia abajo y 0 a los lados*/
+    position: absolute;
+    width: 80%; /*de su contenedor padre*/
+    left: 40%; /*con respecto a su padre*/
+    top: 90%
+}
+.boton-copiar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    gap:8px;
+    width: 25%;
+    background-color: #f3f5fc;
+    border-radius: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 19px;/*ancho de linea*/
+    text-align: center;
+    color: #0a3871; /*color del texto*/
+    border: 1px solid #f3f5fc
+}
+
+.boton-copiar:hover{
+    
+    width: 20.5%;
+  
+}
+.hechopor{
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    background: #f3f5fc;
+    
+}
+
 /* DISEÑO RESPONSIVO */
 @media (max-width: 57.5em){  /*cuando la pantalla sea de maximo 57.5em*/
     .contenedor {
@@ -246,6 +291,28 @@
         width: 100%; /*(respecto a su contenedor padre)*/
         top: 5%;
     }
+
+    .copiar{
+        left: 40%;
+        
+    }
+
+    .boton-copiar{
+        
+        font-size: 10px;
+        background: #fff;
+        color: #0a3871;
+        line-height: 10px;
+        border: 1px solid #0a3871 ;
+    }
+
+    .boton-copiar:hover{
+        margin: 0.1%;
+        width: 23%;
+        padding: .9%;
+    }
+
+  
 
 
 }
