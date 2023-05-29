@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    position: relative;
+    width: 100vw; /* vw dice que sea el 100% del ancho de la pantalla*/
+    height: 100vh; /*mientras que vh dice que sea el 100% de alto*/
+    background: #f3f5fc;
+}
+
+.texto{
+    position: absolute;
+    width: 43%;
+    height: 60%;
+    left:12% ; /*que tan corrido esta el text area desde el borde izquierdo de la pantalla hasta la derecha*/
+    top: 15%; /*lo mismo que left pero seraparo del borde supoerior*/
+    border: none;/*para quitar borde*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style:normal;
+    font-weight: 400; /*Entre mas grande el peso mas grande la negrita*/
+    font-size: 30px;
+    line-height: 100%; /* Es cuanto espacio vertical va a haber desde el inicio de cuando de texto hasta donde va a empezar a escribir*/
+    background-color: #f3f5fc;
+}
+
+.texto::placeholder{ /*Para darle estilos a una propiedad usamos ::*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #0a3871;
+
+}
+
+.texto:focus,.texto:active{ /*vamos a modificar el comportamiento focus (El recuadro negro todo feo que sale al clickear el cuadro) y al active que es cuando empezamos a escribir*/
+    border: none;
+    outline: none; /*Con esto se quita el borde negro*/
+
+}
+
+.condiciones{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px; /*Espaciamienmto interno que tienen los objetos flexibles*/
+    position: absolute;
+    width: 80%; /*este 80% no se refiere a la pantalla, sino al div padre que se refiere al -texto que usa el 43% de la pantalla*/
+    left: 20%; /*igual que .texto*/
+    top: 80%; /* .texto tiene un top de 15% + su altura de 60% de pantalla + 5% de espacio extra*/
+
+}
+
+.condiciones p{
+    /*El width o hereda del padre*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;   
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 80%;
+    flex: none; /*el padre es flex  y no se quiere que estew lo sea*/
+    order: 1;
+    flex-grow: 0;
+}
+
+.botones{
+  
+    display: flex; /*Para poner un boton alado de otro lo mas facil es hacer el contenedor flexile*/
+    flex-direction: row;
+    align-items: flex-start; /*alinear al inicio del contenedor*/
+    padding: 1% 0; /*1% hacia arriba y hacia abajo y 0 a los lados*/
+    position: absolute;
+    width: 80%; /*de su contenedor padre*/
+    left: 12%;
+    top: 83%; /*La sumatoria del top de .condiciones + un poco mas*/
+
+
+}
+
+
+
+.boton-encriptar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    gap:8px;
+    width: 25%;
+    background-color: #0a3871;
+    border-radius: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 19px;/*ancho de linea*/
+    text-align: center;
+    color: white; /*color del texto*/
+}
+.boton-desencriptar{
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2%;
+    gap:8px;
+    width: 25%;
+    background-color: #d8dfe8;
+    border: 1px solid #0a3871 ; /*borde de linea solida*/
+    border-radius: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 19px;/*ancho de linea*/
+    text-align: center;
+    color: #0a3871; /*color del texto*/
+}
+
+.boton-encriptar:hover,
+.boton-desencriptar:hover{ /*Aqui se usan los botones por separado porque al tratar de manipular el hover del dib "botones" se comportaba muy extraño*/
+    margin: 0.3%; 
+    width: 24.5%;
+    padding: 1.8%; /*reduciendo para que no salga del contenedor*/  
+}
+
+.encriptado{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 30%; 
+    height: 90%; /*con width, height y background estamos haciendo el rectangulo blanco sin usar formas*/
+    left: 60%; /*Esta medida se saca de sumar el width y left  de .texto (55)  mas un poco mas*/
+    top: 5%; /*Porque el height es de 90% y tanto arriba como abajo queremos que sea 5%*/
+    background: #fff;
+    box-shadow: 0px,24px,32px,-8px rgba(0, 0, 0, 0.08); /*sombra de caja con respecto a las manesillas del reloj con transparencia*/
+    border-radius: 34px;
+}
+
+.mensajeencriptado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: 1%;
+    gap: 16px;
+    position: absolute;
+    width: 100%; /*100% del contenedor*/
+    top: 65%;
+    text-align: center; /*El texto del contenedor se alinea al centro*/
+
+}
+
+.mensajeencriptado h2 { /*Aqui accedemos al h2 atravez de su padre para poder modificarlo*/
+    width: 60%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    ;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center;
+    color: #343a40;
+
+}
+
+.mensajeencriptado p{
+    width: 80%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #495077;
+
+
+}
+
+.encriptado img{
+    position: absolute; /*solo con poner position absolute ya se hace mas pequeño*/
+    width: 80%;
+    height: 50%;
+    top: 15%;
+    
+}
+
+/* DISEÑO RESPONSIVO */
+@media (max-width: 57.5em){  /*cuando la pantalla sea de maximo 57.5em*/
+    .contenedor {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .encriptar{
+    width: 100%;
+
+    }
+
+    .texto{
+        width: 80%;
+        height: 60%;
+        left: 10%;
+        top: 5%;
+        
+    }
+    .condiciones{
+        width: 80%;
+        left: 10%;
+        top:66%;
+
+    }
+
+    .condiciones p{
+        font-size: 16px;
+
+    }
+
+    .botones{
+        width: 80%;
+        left: 10%;
+        top: 70%;
+
+    }
+
+    .boton-encriptar, .boton-desencriptar{
+        width: 48%;
+        border-radius: 16px;
+
+    }
+
+    .boton-encriptar:hover, .boton-desencriptar:hover{ /*Como esto es para movil el hover sera el comportamiento que tiene al pulsar*/
+        margin: 0.3%;
+        width: 47.5%;
+        padding: 1.8%;
+        
+    }
+
+    .encriptado{ /*La zona del rectangulo blanco*/
+         width: 80%;
+         height: 15%;
+         left: 10%;
+         top: 80%;
+
+    }
+    .encriptado img{
+        display: none;
+    }
+
+    .mensajeencriptado{
+        width: 100%; /*(respecto a su contenedor padre)*/
+        top: 5%;
+    }
+
+
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de texto</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="contenedor"> <!--se puede crear un div solo poniendo un . y su nombre -->
+        <div class="encriptar">
+            <textarea name="texto" id="texto" class="texto" cols="30" rows="10" placeholder="Ingresa el texto aquí"></textarea> <!--Literalmente escribio toda la estructura con tan solo escribir texta..-->
+        
+            <div class="condiciones">
+                <p><img src="imgs/bi_exclamation-circle-fill.png"> letras minusculas y sin acento</p>
+            </div>
+            <div class="botones">
+                <!--Aqui lo hare de forma diferente para ver como reacciona cada uno-->
+                <button class="boton-encriptar" type="button" onclick="encriptar()">Encriptar</button>
+                <input type="button" class="boton-desencriptar" value="desencriptar" onclick="desencriptar()">
+            </div>
+        </div>
+        <div class="encriptado">
+            <img src="imgs/Muñeco.png" alt="Persona viendo un diamante con una lupa" id="persona"> <!--ya aparece dentro del cuadro encriptado porque tambien pertenece a este div-->
+            <div class="mensajeencriptado" id="mensajeencriptado">
+                <h2 id="titulomensaje">Ningun mensaje encriptado</h2>
+                <p id="parafo">ingrese el texto que deseas encriptar o desencriptar</p>
+                <!--<textarea name="mensajeescrito" id="mensajeescrito" cols="30" rows="10" class="mensajeescrito"></textarea> -->
+            </div>
+        </div>
+    </div> 
+</body>
+<script src="index.js"></script>
+</html>
